@@ -138,38 +138,38 @@ export default function TerminalPage() {
       <Header />
       <Sidebar />
 
-      <main className="relative z-10 min-h-screen pl-0 md:pl-32 pt-28 pb-24">
-        <div className="max-w-5xl mx-auto px-4 md:px-8 h-[calc(100vh-12rem)]">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="w-3 h-3 rounded-full bg-error digital-pulse" />
-            <h1 className="font-headline-lg text-headline-lg text-white font-bold">
+      <main className="relative z-10 min-h-screen pl-0 md:pl-32 pt-20 md:pt-28 pb-16 md:pb-24">
+        <div className="max-w-5xl mx-auto px-4 md:px-8 flex flex-col" style={{ height: 'calc(100vh - 8rem)' }}>
+          <div className="flex items-center gap-3 mb-4 md:mb-6">
+            <span className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-error digital-pulse" />
+            <h1 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white font-bold">
               TERMINAL
             </h1>
-            <span className="font-label-mono text-[11px] text-primary/50 tracking-[0.3em] uppercase font-bold ml-auto">
+            <span className="font-label-mono text-[9px] md:text-[11px] text-primary/50 tracking-[0.3em] uppercase font-bold ml-auto">
               T-1 Operator Access
             </span>
           </div>
 
           <div
             onClick={handleScreenClick}
-            className="glass-ui rounded-xl p-4 md:p-8 h-full overflow-y-auto cursor-text font-data-readout text-sm md:text-base leading-relaxed"
+            className="glass-ui rounded-xl p-4 md:p-8 flex-1 overflow-y-auto cursor-text font-data-readout text-xs md:text-sm lg:text-base leading-relaxed"
           >
             {lines.map((line) => (
               <div key={line.id} className={`mb-1 ${TYPE_COLORS[line.type]} whitespace-pre-wrap`}>
-                <span className="opacity-50 mr-2">{TYPE_PREFIX[line.type]}</span>
+                <span className="opacity-50 mr-1 md:mr-2">{TYPE_PREFIX[line.type]}</span>
                 {line.message}
               </div>
             ))}
 
-            <div className="flex items-center mt-4">
-              <span className="text-primary mr-2 opacity-70">$</span>
+            <div className="flex items-center mt-3 md:mt-4">
+              <span className="text-primary mr-1 md:mr-2 opacity-70 text-sm md:text-base">$</span>
               <input
                 ref={inputRef}
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                className="flex-1 bg-transparent border-none outline-none text-primary caret-primary font-data-readout text-sm md:text-base"
+                className="flex-1 bg-transparent border-none outline-none text-primary caret-primary font-data-readout text-xs md:text-sm lg:text-base"
                 placeholder="TYPE COMMAND..."
                 autoFocus
                 spellCheck={false}

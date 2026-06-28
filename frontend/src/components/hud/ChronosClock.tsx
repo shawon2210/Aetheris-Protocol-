@@ -19,11 +19,11 @@ export function ChronosClock() {
   }, []);
 
   return (
-    <div className="fixed top-28 right-margin-desktop z-30 pointer-events-none text-right">
+    <div className="fixed top-24 md:top-28 right-5 md:right-margin-desktop z-30 pointer-events-none text-right">
       <div className="font-label-mono text-[10px] text-primary/80 uppercase tracking-[0.25em] mb-1 font-bold">
         Chronos Sync
       </div>
-      <div className="font-data-readout text-primary glow-text-subtle text-2xl font-light">
+      <div className="font-data-readout text-primary glow-text-subtle text-lg md:text-2xl font-light">
         {label}
       </div>
     </div>

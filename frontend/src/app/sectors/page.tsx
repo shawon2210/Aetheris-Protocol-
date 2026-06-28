@@ -47,23 +47,23 @@ export default function SectorsPage() {
       <Header />
       <Sidebar />
 
-      <main className="relative z-10 min-h-screen pl-0 md:pl-32 pt-28 pb-24">
+      <main className="relative z-10 min-h-screen pl-0 md:pl-32 pt-20 md:pt-28 pb-16 md:pb-24">
         <div className="max-w-6xl mx-auto px-4 md:px-8">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 md:mb-10">
             <div>
-              <h1 className="font-headline-lg text-headline-lg text-white font-bold">
+              <h1 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white font-bold">
                 SECTOR STATUS
               </h1>
-              <p className="font-label-mono text-[11px] text-primary/70 tracking-[0.3em] uppercase font-bold mt-1">
+              <p className="font-label-mono text-[10px] md:text-[11px] text-primary/70 tracking-[0.3em] uppercase font-bold mt-1">
                 Real-time telemetry // Auto-sync enabled
               </p>
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-1.5 md:gap-2 flex-wrap">
               {filterOptions.map((opt) => (
                 <button
                   key={opt}
                   type="button"
-                  className="px-4 py-2 border border-outline-variant text-label-mono font-label-mono text-[11px] uppercase tracking-wider text-on-surface-variant hover:border-primary/50 hover:text-primary transition-colors"
+                  className="px-3 md:px-4 py-1.5 md:py-2 border border-outline-variant text-label-mono font-label-mono text-[10px] md:text-[11px] uppercase tracking-wider text-on-surface-variant hover:border-primary/50 hover:text-primary transition-colors"
                 >
                   {opt}
                 </button>
@@ -71,7 +71,7 @@ export default function SectorsPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {sectors.map((sector) => {
               const info = SECTORS_INFO[sector.id] ?? { region: 'UNKNOWN', nodes: 0, desc: '' };
               return (
@@ -79,32 +79,32 @@ export default function SectorsPage() {
                   key={sector.id}
                   bracket="both"
                   hoverable
-                  className={`p-8 flex flex-col ${BG_CLASS[sector.state]}`}
+                  className={`p-6 md:p-8 flex flex-col ${BG_CLASS[sector.state]}`}
                 >
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="flex items-center gap-4">
-                      <div className={`w-3 h-3 digital-pulse rounded-full ${DOT_CLASS[sector.state]}`} />
-                      <h2 className="font-headline-lg text-[20px] md:text-headline-lg text-white font-bold">
+                  <div className="flex items-center justify-between mb-4 md:mb-6">
+                    <div className="flex items-center gap-3 md:gap-4">
+                      <div className={`w-2.5 h-2.5 md:w-3 md:h-3 digital-pulse rounded-full ${DOT_CLASS[sector.state]}`} />
+                      <h2 className="font-headline-lg text-lg md:text-headline-lg text-white font-bold">
                         {sector.name}
                       </h2>
                     </div>
-                    <span className={`font-data-readout text-sm font-bold ${TEXT_CLASS[sector.state]}`}>
+                    <span className={`font-data-readout text-xs md:text-sm font-bold ${TEXT_CLASS[sector.state]}`}>
                       {sector.statusCode}
                     </span>
                   </div>
 
-                  <div className="space-y-3 mb-6">
-                    <div className="flex justify-between text-label-mono font-label-mono text-[11px] uppercase tracking-wider">
+                  <div className="space-y-2 md:space-y-3 mb-4 md:mb-6">
+                    <div className="flex justify-between text-label-mono font-label-mono text-[10px] md:text-[11px] uppercase tracking-wider">
                       <span className="text-on-surface-variant/60">Region</span>
                       <span className="text-primary/80">{info.region}</span>
                     </div>
-                    <div className="flex justify-between text-label-mono font-label-mono text-[11px] uppercase tracking-wider">
+                    <div className="flex justify-between text-label-mono font-label-mono text-[10px] md:text-[11px] uppercase tracking-wider">
                       <span className="text-on-surface-variant/60">Active Nodes</span>
                       <span className="text-primary/80">{info.nodes.toLocaleString()}</span>
                     </div>
                   </div>
 
-                  <p className="font-body-md text-sm text-on-surface-variant/70 leading-relaxed mt-auto">
+                  <p className="font-body-md text-xs md:text-sm text-on-surface-variant/70 leading-relaxed mt-auto">
                     {info.desc}
                   </p>
                 </GlassPanel>
@@ -113,8 +113,8 @@ export default function SectorsPage() {
           </div>
 
           {sectors.length === 0 && (
-            <div className="text-center py-20">
-              <p className="font-data-readout text-primary/50">AWAITING SECTOR DATA...</p>
+            <div className="text-center py-16 md:py-20">
+              <p className="font-data-readout text-sm md:text-base text-primary/50">AWAITING SECTOR DATA...</p>
             </div>
           )}
         </div>

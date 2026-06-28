@@ -38,7 +38,7 @@ export function SectorStatusCard() {
     <GlassPanel
       bracket="br"
       hoverable
-      className="col-span-12 md:col-span-4 p-6 md:p-10 flex flex-col bg-surface-container-low/50"
+      className="p-6 md:p-10 flex flex-col bg-surface-container-low/50"
     >
       <div className="flex items-center justify-between mb-6 md:mb-10">
         <h3 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white font-bold">
@@ -46,29 +46,29 @@ export function SectorStatusCard() {
         </h3>
         <Link
           href="/sectors"
-          className="font-label-mono text-[10px] text-primary/50 hover:text-primary transition-colors uppercase tracking-wider no-underline"
+          className="font-label-mono text-[9px] md:text-[10px] text-primary/50 hover:text-primary transition-colors uppercase tracking-wider no-underline"
         >
           View All
         </Link>
       </div>
-      <div className="flex-1 space-y-6 md:space-y-8">
+      <div className="flex-1 space-y-5 md:space-y-8">
         {sectors.slice(0, 3).map((sector) => (
           <div
             key={sector.id}
             className="flex justify-between items-center group/row"
           >
-            <div className="flex items-center gap-4 md:gap-5">
+            <div className="flex items-center gap-3 md:gap-5 min-w-0">
               <div
-                className={`w-2 h-2 md:w-2.5 md:h-2.5 digital-pulse rounded-full ${DOT_CLASS[sector.state]}`}
+                className={`w-2 h-2 md:w-2.5 md:h-2.5 digital-pulse rounded-full shrink-0 ${DOT_CLASS[sector.state]}`}
               />
               <span
-                className={`font-label-mono text-[12px] md:text-[13px] text-white/80 transition-colors font-bold ${HOVER_TEXT_CLASS[sector.state]}`}
+                className={`font-label-mono text-[11px] md:text-[13px] text-white/80 transition-colors font-bold truncate ${HOVER_TEXT_CLASS[sector.state]}`}
               >
                 {sector.name}
               </span>
             </div>
             <span
-              className={`font-data-readout text-[12px] md:text-[13px] font-bold ${TEXT_CLASS[sector.state]}`}
+              className={`font-data-readout text-[11px] md:text-[13px] font-bold shrink-0 ${TEXT_CLASS[sector.state]}`}
             >
               {sector.statusCode}
             </span>
@@ -77,7 +77,7 @@ export function SectorStatusCard() {
       </div>
       <Link
         href="/terminal"
-        className="mt-6 md:mt-10 py-4 border border-primary/20 hover:border-primary/60 transition-colors font-label-mono text-[11px] tracking-[0.3em] uppercase font-bold text-primary/70 hover:text-primary bg-primary/5 block text-center no-underline"
+        className="mt-6 md:mt-10 py-3 md:py-4 border border-primary/20 hover:border-primary/60 transition-colors font-label-mono text-[10px] md:text-[11px] tracking-[0.3em] uppercase font-bold text-primary/70 hover:text-primary bg-primary/5 block text-center no-underline"
       >
         Open Terminal
       </Link>
