@@ -38,6 +38,13 @@ export interface LinkSession {
   establishedAt: string;
 }
 
+export interface TerminalLine {
+  id: string;
+  message: string;
+  type: 'log' | 'warn' | 'error' | 'success';
+  timestamp: string;
+}
+
 export interface ApiResponse<T> {
   success: boolean;
   timestamp: string;

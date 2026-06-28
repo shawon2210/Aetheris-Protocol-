@@ -23,13 +23,19 @@ export default function Home() {
       <ChronosClock />
       <NetworkLatencyIndicator />
 
-      <main className="relative z-10 min-h-screen pl-24 md:pl-32 pt-48 pb-24 pr-margin-desktop flex flex-col items-center">
+      <main className="relative z-10 min-h-screen pl-0 md:pl-24 pt-48 pb-24 px-5 md:pr-margin-desktop flex flex-col items-center">
         <HeroModule />
 
-        <div className="grid grid-cols-12 gap-8 w-full max-w-6xl">
-          <NeuralArchiveCard />
-          <SectorStatusCard />
-          <LiveDataStream />
+        <div className="grid grid-cols-12 gap-4 md:gap-8 w-full max-w-6xl">
+          <div className="col-span-12 md:col-span-4">
+            <SectorStatusCard />
+          </div>
+          <div className="col-span-12 md:col-span-8">
+            <NeuralArchiveCard />
+          </div>
+          <div className="col-span-12">
+            <LiveDataStream />
+          </div>
         </div>
       </main>
 

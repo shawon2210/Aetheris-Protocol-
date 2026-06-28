@@ -6,6 +6,7 @@ import type {
   LiveEvent,
   Sector,
   SystemStatus,
+  TerminalLine,
 } from '@/types';
 
 async function request<T>(
@@ -34,4 +35,13 @@ export const api = {
   getLiveFeed: () => request<LiveEvent[]>('/live-feed'),
   initializeLink: () =>
     request<LinkSession>('/link/initialize', { method: 'POST' }),
+  getTerminalLines: () => request<TerminalLine[]>('/terminal'),
+  executeCommand: (input: string) =>
+    request<TerminalLine>('/terminal/command', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ input }),
+    }),
+  simulateActivity: () =>
+    request<TerminalLine>('/terminal/simulate', { method: 'POST' }),
 };
